@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "108318827199",
+    "project_id": "ntu-mobile-9eb73",
+    "storage_bucket": "ntu-mobile-9eb73.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:108318827199:android:b1268d41c4f5375b2f9c0a",
+        "android_client_info": {
+          "package_name": "com.example.ntumobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "108318827199-uroo5t9nlefqgo4neiklufh4binm8faa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-7N9kkvFpHHkhjzlx0gRXEENsY_-8qIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "108318827199-uroo5t9nlefqgo4neiklufh4binm8faa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

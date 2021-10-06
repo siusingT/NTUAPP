@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".work_specificmod">
+
+    <Button
+        android:id="@+id/back_modspg"
+        android:layout_width="43dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="36dp"
+        android:drawableLeft="@drawable/go_back"
+        android:insetLeft="0dp"
+        app:backgroundTint="@color/background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/modName"
+        android:layout_width="130dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="36dp"
+        android:text="Mod"
+        android:textAlignment="center"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/addMod"
+        app:layout_constraintHorizontal_bias="0.477"
+        app:layout_constraintStart_toEndOf="@+id/back_modspg"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addParticipant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="Add Participants"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/button_dark_purple"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:alignmentMode="alignMargins"
+        android:columnCount="2"
+        android:columnOrderPreserved="false"
+        android:rowCount="4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/modName"
+        app:layout_constraintVertical_bias="0.548">
+
+
+        <Button
+            android:id="@+id/btnInfo"
+            android:layout_width="161dp"
+            android:layout_height="118dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_template"
+            android:text="Additional Info"
+            app:backgroundTint="@color/button_dark_purple"
+            tools:layout_editor_absoluteX="23dp"
+            tools:layout_editor_absoluteY="245dp" />
+
+        <Button
+            android:id="@+id/btnQuiz"
+            android:layout_width="161dp"
+            android:layout_height="118dp"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_template"
+            android:text="Quizzes"
+            app:backgroundTint="@color/button_light_purple"
+            tools:layout_editor_absoluteX="221dp"
+            tools:layout_editor_absoluteY="249dp" />
+
+        <Button
+            android:id="@+id/btnNotes"
+            android:layout_width="161dp"
+            android:layout_height="118dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_template"
+            android:text="Notes"
+            app:backgroundTint="@color/button_dark_purple"
+            tools:layout_editor_absoluteX="23dp"
+            tools:layout_editor_absoluteY="120dp" />
+
+        <Button
+            android:id="@+id/btnTut"
+            android:layout_width="161dp"
+            android:layout_height="118dp"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="25dp"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/button_template"
+            android:text="Tutorial"
+            app:backgroundTint="@color/button_light_purple"
+            tools:layout_editor_absoluteX="222dp"
+            tools:layout_editor_absoluteY="112dp" />
+    </GridLayout>
+
+    <Button
+        android:id="@+id/addFolder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="4dp"
+        android:text="Add Folder"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/button_dark_purple"
+        app:layout_constraintBottom_toTopOf="@id/tvParticipants"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tvParticipants"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="75dp"
+        android:text="Participants"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
