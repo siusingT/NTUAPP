@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background_blue"
+    android:backgroundTint="@color/Background_blue"
+    tools:context=".booking_timeslot">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/facilities_white" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/saly_11" />
+
+    <Button
+        android:id="@+id/back_bookInfo"
+        android:layout_width="70dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="352dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/go_back"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/time1"
+        android:layout_width="177dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_weight="1"
+        android:backgroundTint="#92C1FF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#00FFFFFF"
+        android:text="09:00 - 11:00"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
+        app:iconTint="#00FFFFFF"
+        app:iconTintMode="add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <Button
+        android:id="@+id/time2"
+        android:layout_width="177dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#92C1FF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#00FFFFFF"
+        android:text="11:00 - 13:00"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
+        app:iconTint="#00FFFFFF"
+        app:iconTintMode="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time1"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+    <Button
+        android:id="@+id/time3"
+        android:layout_width="177dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:backgroundTint="#92C1FF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#00FFFFFF"
+        android:text="13:00 - 15:00"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
+        app:iconTint="#00FFFFFF"
+        app:iconTintMode="add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time1" />
+
+    <Button
+        android:id="@+id/time5"
+        android:layout_width="177dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_weight="1"
+        android:backgroundTint="#92C1FF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#00FFFFFF"
+        android:text="17:00 - 19:00"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
+        app:iconTint="#00FFFFFF"
+        app:iconTintMode="add"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time3" />
+
+    <Button
+        android:id="@+id/time4"
+        android:layout_width="177dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#92C1FF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#00FFFFFF"
+        android:text="15:00 - 17:00"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
+        app:iconTint="#00FFFFFF"
+        app:iconTintMode="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time1"
+        app:layout_constraintTop_toBottomOf="@+id/time2" />
+
+    <Button
+        android:id="@+id/time6"
+        android:layout_width="177dp"
+        android:layout_height="84dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#92C1FF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#00FFFFFF"
+        android:text="19:00 - 21:00"
+        android:textSize="20sp"
+        app:cornerRadius="15dp"
+        app:iconTint="#00FFFFFF"
+        app:iconTintMode="add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/time1"
+        app:layout_constraintTop_toBottomOf="@+id/time4" />
+
+    <ImageButton
+        android:id="@+id/book_button"
+        android:layout_width="262dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="#00FFFFFF"
+        android:src="@drawable/book_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/time6" />
+
+<!--    <TextView
+        android:id="@+id/show_info"
+        android:layout_width="240dp"
+        android:layout_height="42dp"
+        android:fontFamily="@font/sf_pro"
+        android:text="Book_info"
+        android:textAlignment="center"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/time2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.0" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

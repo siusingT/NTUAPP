@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Background_blue"
+    android:backgroundTint="@color/Background_blue"
+    tools:context=".avatar">
+
+    <Button
+        android:id="@+id/saveBtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="25dp"
+        android:text="Save"
+        android:background="@drawable/button_template"
+        app:backgroundTint="#FF7171"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/selectedAvatar"
+        android:layout_width="match_parent"
+        android:layout_height="225dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveBtn"
+        app:srcCompat="@drawable/gee_me_001" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="175dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/facilities_white" />
+
+    <Button
+        android:id="@+id/maleBtn"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedAvatar"
+        android:background="@drawable/button_template"
+        app:backgroundTint="@color/avatar_select"
+        android:text="Male"
+        android:textSize="18sp"
+        android:textAllCaps="false"/>
+
+    <Button
+        android:id="@+id/femaleBtn"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/selectedAvatar"
+        android:layout_marginRight="50dp"
+        android:background="@drawable/button_template"
+        app:backgroundTint="#C1DDF6"
+        android:text="Female"
+        android:textSize="18sp"
+        android:textAllCaps="false"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <GridView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="370dp"
+            android:numColumns="3"
+            android:horizontalSpacing="4dp"
+            android:verticalSpacing="4dp"
+            android:id="@+id/gridView"/>
+
+
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:backgroundTint="@color/background"
+    android:orientation="vertical"
+    tools:context=".booking_hive">
+
+
+
+    <devs.mulham.horizontalcalendar.HorizontalCalendarView
+        android:id="@+id/date_picker"
+        android:layout_width="410dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:textColorNormal="#000000"
+        app:textColorSelected="@color/button_blue" />
+
+    <Button
+        android:id="@+id/back_bookInfo"
+        android:layout_width="70dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="352dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/go_back"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="188dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/sf_pro"
+        android:text="Tutorial Room"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_picker" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="188dp"
+        android:layout_height="61dp"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/sf_pro"
+        android:text="Table"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView"
+        android:layout_width="406dp"
+        android:layout_height="93dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/date_picker">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="#00FFFFFF"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/time1"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:backgroundTint="@drawable/button_change_color"
+                android:fontFamily="@font/sf_pro"
+                android:shadowColor="#00FFFFFF"
+                android:text="TR+ 12"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/youth"
+                app:iconTint="#00FFFFFF"
+                app:iconTintMode="add" />
+
+            <Button
+                android:id="@+id/tr13"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#92C1FF"
+                android:fontFamily="@font/sf_pro"
+                android:shadowColor="#00FFFFFF"
+                android:text="TR+ 13"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/youth"
+                app:iconTint="#00FFFFFF"
+                app:iconTintMode="add" />
+
+            <Button
+                android:id="@+id/tr14"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#92C1FF"
+                android:fontFamily="@font/sf_pro"
+                android:shadowColor="#00FFFFFF"
+                android:text="TR+ 14"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/youth"
+                app:iconTint="#00FFFFFF"
+                app:iconTintMode="add" />
+
+            <Button
+                android:id="@+id/tr15"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:backgroundTint="#92C1FF"
+                android:fontFamily="@font/sf_pro"
+                android:shadowColor="#00FFFFFF"
+                android:text="TR+ 15"
+                android:textSize="20sp"
+                app:cornerRadius="10dp"
+                app:icon="@drawable/youth"
+                app:iconTint="#00FFFFFF"
+                app:iconTintMode="add" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <ImageButton
+        android:id="@+id/table3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/table4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table1"
+        app:srcCompat="@drawable/table3" />
+
+    <ImageButton
+        android:id="@+id/table5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/table4"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/table3"
+        app:srcCompat="@drawable/table5" />
+
+    <ImageButton
+        android:id="@+id/table1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/table2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:srcCompat="@drawable/table1" />
+
+    <ImageButton
+        android:id="@+id/table2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/table1"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        app:srcCompat="@drawable/table2" />
+
+    <ImageButton
+        android:id="@+id/table4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:backgroundTint="#00FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/table1"
+        app:layout_constraintTop_toBottomOf="@+id/table2"
+        app:srcCompat="@drawable/table4" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

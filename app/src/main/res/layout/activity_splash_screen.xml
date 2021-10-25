@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C1DDF6"
+    tools:context=".Splash_Screen"  >
+
+    <ImageView
+        android:id="@+id/image1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/saly_1" />
+
+    <Button
+        android:id="@+id/start_button"
+        android:layout_width="191dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="68dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        android:fontFamily="@font/sf_pro"
+        android:shadowColor="#FF7171"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        app:cornerRadius="60px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splash_text2"
+        app:layout_constraintVertical_bias="0.912" />
+
+    <TextView
+        android:id="@+id/splash_text1"
+        android:layout_width="277dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="112dp"
+        android:fontFamily="@font/sf_pro"
+        android:freezesText="false"
+        android:text="Welcome to joiNTU ! "
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/image1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/splash_text2"
+        android:layout_width="277dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="48dp"
+        android:fontFamily="@font/sf_pro"
+        android:freezesText="false"
+        android:text="Lets get you started !"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/image1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splash_text1"
+        app:layout_constraintVertical_bias="0.203" />
+
+    <ImageView
+        android:id="@+id/buttonImage"
+        android:layout_width="233dp"
+        android:layout_height="116dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/splash_text2"
+        app:srcCompat="@drawable/group_18" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".social_jio_sports_createSession">
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="147dp"
+        android:layout_height="138dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:srcCompat="@drawable/img1" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="171dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="250dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:srcCompat="@drawable/img2" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JIO SESSION FORM"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="240dp"
+        android:textSize="38dp"
+        android:textStyle="bold"
+        android:textColor="#6979e9"
+        android:fontFamily="@font/sf_pro"
+        />
+
+    <EditText
+        android:id="@+id/activity_et"
+        android:hint="Activity Name"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330sp"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/location_et"
+        android:layout_below="@id/activity_et"
+        android:hint="Location"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/time_et"
+        android:hint="Time"
+        android:layout_below="@id/location_et"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:gravity="center_horizontal" />
+
+    <EditText
+        android:id="@+id/pax_et"
+        android:hint="Number of Participants Required"
+        android:layout_below="@id/time_et"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType = "number"
+        android:gravity="center_horizontal" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createsession_btn"
+        android:layout_width="340dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="130dp"
+        android:background="@drawable/button_template"
+        android:backgroundTint="@color/Background_blue"
+        android:text="Create"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+</RelativeLayout>
