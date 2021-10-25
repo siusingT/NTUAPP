@@ -56,7 +56,8 @@ public class booking_hive extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        myRef = mFirebaseDatabase.getReference();
+        myRef = mFirebaseDatabase.getReference().child("Users");
+        //myRef = mFirebaseDatabase.getReference().child("Users");
         FirebaseUser user = mAuth.getCurrentUser();
         String userID = user.getUid();
 
@@ -197,6 +198,7 @@ public class booking_hive extends AppCompatActivity {
                     String countt = String.valueOf(count);
                     myRef.child(userID).child("Room").child(countt).child("TR").setValue(TR);
                     myRef.child(userID).child("Room").child(countt).child("Date").setValue(dateSelected);
+                    myRef.child(userID).child("Room").child(countt).child("Table").setValue("Table 1");
                     Intent table = new Intent(booking_hive.this,booking_timeslot.class);
                     table.putExtra("countt",count);
                     startActivity(table);
@@ -220,6 +222,7 @@ public class booking_hive extends AppCompatActivity {
                     String countt = String.valueOf(count);
                     myRef.child(userID).child("Room").child(countt).child("TR").setValue(TR);
                     myRef.child(userID).child("Room").child(countt).child("Date").setValue(dateSelected);
+                    myRef.child(userID).child("Room").child(countt).child("Table").setValue("Table 2");
                     Intent table = new Intent(booking_hive.this,booking_timeslot.class);
                     table.putExtra("countt",count);
                     startActivity(table);
@@ -242,6 +245,7 @@ public class booking_hive extends AppCompatActivity {
                     String countt = String.valueOf(count);
                     myRef.child(userID).child("Room").child(countt).child("TR").setValue(TR);
                     myRef.child(userID).child("Room").child(countt).child("Date").setValue(dateSelected);
+                    myRef.child(userID).child("Room").child(countt).child("Table").setValue("Table 3");
                     Intent table = new Intent(booking_hive.this,booking_timeslot.class);
                     table.putExtra("countt",count);
                     startActivity(table);
@@ -264,6 +268,7 @@ public class booking_hive extends AppCompatActivity {
                     String countt = String.valueOf(count);
                     myRef.child(userID).child("Room").child(countt).child("TR").setValue(TR);
                     myRef.child(userID).child("Room").child(countt).child("Date").setValue(dateSelected);
+                    myRef.child(userID).child("Room").child(countt).child("Table").setValue("Table 4");
                     Intent table = new Intent(booking_hive.this,booking_timeslot.class);
                     table.putExtra("countt",count);
                     startActivity(table);
@@ -286,6 +291,7 @@ public class booking_hive extends AppCompatActivity {
                     String countt = String.valueOf(count);
                     myRef.child(userID).child("Room").child(countt).child("TR").setValue(TR);
                     myRef.child(userID).child("Room").child(countt).child("Date").setValue(dateSelected);
+                    myRef.child(userID).child("Room").child(countt).child("Table").setValue("Table 5");
                     Intent table = new Intent(booking_hive.this,booking_timeslot.class);
                     table.putExtra("countt",count);
                     startActivity(table);

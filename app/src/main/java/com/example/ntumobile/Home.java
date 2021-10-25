@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +21,9 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Home extends AppCompatActivity {
 
-    private Button buttonBooking, buttonCommunity;
-    ImageView image1, image2;
-    Animation topAnim;
+    Button buttonBooking;
+    TextView date, tr, timeslot;
+    ImageButton friend,profile,chat;
 
     private String currentUserID; //
 
@@ -35,7 +33,6 @@ public class Home extends AppCompatActivity {
     private DatabaseReference myRef; //
     private FirebaseAuth.AuthStateListener mAuthListener;
 
-
     TextView nameText;
 
     @Override
@@ -43,30 +40,71 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation_login);
-        image1= (ImageView)findViewById(R.id.home_image1);
-        image2= (ImageView)findViewById(R.id.home_image2);
-
-        image1.setAnimation(topAnim);
-        image2.setAnimation(topAnim);
-
+        //bottom navigation
         Button buttonBooking = (Button) findViewById(R.id.booking);
         buttonBooking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openBookingPage();
+                Intent intent = new Intent(Home.this, booking_main.class);
+                startActivity(intent);
             }
         });
 
-        Button buttonCommunity = (Button) findViewById(R.id.community);
+        ImageButton buttonCommunity = (ImageButton) findViewById(R.id.community);
         buttonCommunity.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                openCommunityPage();
+                Intent intent = new Intent(Home.this, community_main.class);
+                startActivity(intent);
             }
         });
 
+        ImageButton buttonChat = (ImageButton) findViewById(R.id.chat_button);
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, chat_main.class);
+                startActivity(intent);
+            }
+        });
+
+
         nameText = (TextView) findViewById(R.id.nameText);
+        date = (TextView) findViewById(R.id.date);
+        tr = (TextView) findViewById(R.id.tr);
+        timeslot = (TextView) findViewById(R.id.timeslot);
+
+        friend = (ImageButton)findViewById(R.id.friends);
+        chat = (ImageButton)findViewById(R.id.menu_chat);
+        profile =(ImageButton)findViewById(R.id.profile_down);
+
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent profile = new Intent(Home.this, profile.class);
+                startActivity(profile);
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);//fading animation to profile page
+            }
+        });
+
+        friend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent friend = new Intent(Home.this,work_friends.class);
+                startActivity(friend);
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            }
+        });
+
+        chat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent chat = new Intent(Home.this,chat_main.class );
+                startActivity(chat);
+                overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            }
+        });
+
 
         mDatabase= FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
         myRef = mDatabase.getReference();
@@ -74,6 +112,7 @@ public class Home extends AppCompatActivity {
 
         String name = getIntent().getStringExtra("name");
         nameText.setText(name); //Name from Register page instead of database
+
 
 
         currentUserID = mAuth.getCurrentUser().getUid();
@@ -85,20 +124,35 @@ public class Home extends AppCompatActivity {
                 FirebaseUser user = firebaseAuth.getCurrentUser();
                 if (user != null) {
                     // User is signed in
-                    toastMessage("Successfully signed in with: " + user.getEmail());
+                    //toastMessage("Successfully signed in with: " + user.getEmail());
                 } else {
                     // User is signed out
-                    toastMessage("Not logged in");
+                    //toastMessage("Not logged in");
                 }
                 // ...
             }
         };
 
-       myRef.addValueEventListener(new ValueEventListener() {
+        myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                String Name = snapshot.child(currentUserID).child("Profile").child("Name").getValue().toString();
-                nameText.setText(Name);
+
+                if(snapshot.child("Users").child(currentUserID).child("Room").exists()){
+                    String Name = snapshot.child("Users").child(currentUserID).child("name").getValue().toString();
+                    String TR = snapshot.child("Users").child(currentUserID).child("Room").child("0").child("TR").getValue().toString();
+                    String TimeSlot = snapshot.child("Users").child(currentUserID).child("Room").child("0").child("Time").getValue().toString();
+                    String Date = snapshot.child("Users").child(currentUserID).child("Room").child("0").child("Date").getValue().toString();
+                    nameText.setText(Name);
+                    tr.setText(TR);
+                    timeslot.setText(TimeSlot);
+                    date.setText(Date);
+                }
+                else{
+                    String Name = snapshot.child("Users").child(currentUserID).child("name").getValue().toString();
+                    nameText.setText(Name);
+                    date.setText("NoBookings");
+                }
+
             }
 
             @Override
@@ -128,16 +182,11 @@ public class Home extends AppCompatActivity {
         }
     }
 
-    public void openBookingPage() {
+    public void openActivityLogin() {
         Intent intent = new Intent(this, booking_main.class);
         startActivity(intent);
+        overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
     }
-    public void openCommunityPage() {
-        Intent intent = new Intent(this, community_main.class);
-        startActivity(intent);
-    }
-
-
     private void toastMessage(String message){
         Toast.makeText(this,message,Toast.LENGTH_SHORT).show();
     }

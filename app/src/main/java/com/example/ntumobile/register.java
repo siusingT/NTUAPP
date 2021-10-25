@@ -91,6 +91,7 @@ public class register extends AppCompatActivity {
                                 mLoadingBar.dismiss();
                                 Toast.makeText(register.this, "Registration is successful", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(register.this,register_info.class);
+                                intent.putExtra("email",email);
                                 intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);
                                 finish();

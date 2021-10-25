@@ -131,13 +131,13 @@
         app:layout_constraintStart_toEndOf="@+id/booking" />
 
     <Button
-        android:id="@+id/profile"
+        android:id="@+id/chat_button"
         android:layout_width="65dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="1dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF"
-        app:icon="@drawable/user"
+        app:icon="@drawable/chat_button"
         app:iconTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

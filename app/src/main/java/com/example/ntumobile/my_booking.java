@@ -2,6 +2,8 @@ package com.example.ntumobile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,7 +26,6 @@ import java.util.ArrayList;
 
 public class my_booking extends AppCompatActivity {
 
-
     //add Firebase Database stuff
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
@@ -31,12 +33,14 @@ public class my_booking extends AppCompatActivity {
     private DatabaseReference myRef;
     private  String userID;
 
-    private ListView mListView;
+    //private ListView mListView;
+    private RecyclerView recyclerView;
+    ArrayList<booking_display> list;
+    private booking_adapter adapter;
+
     int count;
 
     String countt;
-
-
 
     Button back;
 
@@ -46,7 +50,8 @@ public class my_booking extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_booking);
 
-        mListView = (ListView) findViewById(R.id.bookingList_tv);
+
+        //mListView = (ListView) findViewById(R.id.bookingList_tv);
 
         //declare the database reference object. This is what we use to access the database.
         //NOTE: Unless you are signed in, this will not be usable.
@@ -54,8 +59,8 @@ public class my_booking extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
-        myRef = mFirebaseDatabase.getReference().child(userID).child("Room");
-
+        //myRef = mFirebaseDatabase.getReference().child("Users").child(userID).child("Room");
+        myRef = mFirebaseDatabase.getReference().child("Users").child(userID).child("Room");
 
         count = getIntent().getIntExtra("countt", 0);
         countt = String.valueOf(count);
@@ -90,20 +95,42 @@ public class my_booking extends AppCompatActivity {
             }
         };
 
-        final ArrayList<String> list = new ArrayList<>();
-        final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);
-        mListView.setAdapter(adapter);
+        recyclerView = findViewById(R.id.recycler2);
+
+        // To display the Recycler view linearly
+        recyclerView.setLayoutManager(
+                new LinearLayoutManager(this));
+
+
+        list = new ArrayList<>();
+        adapter = new booking_adapter(this,list);
+        recyclerView.setAdapter(adapter);
+        //adapter.setOnItemClickListener(my_booking.this);
+
+        //final ArrayList<String> list = new ArrayList<>();
+        //final ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,list);
+        //mListView.setAdapter(adapter);
 
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot snapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                list.clear();
+                /*list.clear();
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     list.add(ds.getValue().toString());
+                }*/
+
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()){
+
+                    booking_display session = dataSnapshot.getValue(booking_display.class);
+                    list.add(session);
+
+
                 }
+
                 adapter.notifyDataSetChanged();
+
             }
 
             @Override

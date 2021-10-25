@@ -14,4 +14,6 @@
     <color name="button_light_purple">#BE5FDE</color>
     <color name="button_dark_purple">#AB85F9</color>
     <color name="popout_blue">#C1DDF6</color>
+    <color name="avatar_select">#0B2C49</color>
+    <color name="avatar_notselect">#C1DDF6</color>
 </resources>

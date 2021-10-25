@@ -45,7 +45,8 @@ public class booking_timeslot extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        myRef = mFirebaseDatabase.getReference();
+        myRef = mFirebaseDatabase.getReference().child("Users");
+        //myRef = mFirebaseDatabase.getReference().child("Users");
         FirebaseUser user = mAuth.getCurrentUser();
         String userID = user.getUid();
 
@@ -157,7 +158,7 @@ public class booking_timeslot extends AppCompatActivity {
                     FirebaseUser user = mAuth.getCurrentUser();
                     String userID = user.getUid();
                     countt = String.valueOf(count);
-                    myRef.child(userID).child("Room").child(countt).child("Timeslot").setValue(timeslot);
+                    myRef.child(userID).child("Room").child(countt).child("Time").setValue(timeslot);
 
                     Intent book = new Intent(booking_timeslot.this,my_booking.class);
                     book.putExtra("countt",count);

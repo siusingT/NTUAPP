@@ -17,7 +17,7 @@ public class work_main extends AppCompatActivity {
     ImageView workImage;
     Animation topAnim;
 
-    Button Modules, Friends, Links, Timetable;
+    Button Modules, Links, Timetable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +56,15 @@ public class work_main extends AppCompatActivity {
             }
         });
 
+        Button buttonChat = (Button) findViewById(R.id.chat_button);
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(work_main.this, chat_main.class);
+                startActivity(intent);
+            }
+        });
+
 
         Modules = (Button) findViewById(R.id.modules);
         Modules.setOnClickListener(new View.OnClickListener() {
@@ -68,14 +77,6 @@ public class work_main extends AppCompatActivity {
             }
         });
 
-        Friends = (Button) findViewById(R.id.friends);
-        Friends.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(work_main.this, work_friends.class);
-                startActivity(intent);
-            }
-        });
 
         Links = (Button) findViewById(R.id.links);
         Links.setOnClickListener(new View.OnClickListener() {

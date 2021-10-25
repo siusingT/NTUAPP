@@ -55,10 +55,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/rectangle_17" />
 
+
     <Button
         android:id="@+id/social"
         android:fontFamily="@font/sf_pro"
         android:text="Social"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:gravity="center|bottom"
         android:textSize="20sp"
         android:layout_width="170dp"
         android:layout_height="145dp"
@@ -71,10 +75,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="170dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/other_18" />
+
     <Button
         android:id="@+id/work"
         android:fontFamily="@font/sf_pro"
         android:text="Work"
+        android:textAllCaps="false"
+        android:layout_gravity="center"
+        android:gravity="center|bottom"
         android:textSize="20sp"
         android:layout_width="170dp"
         android:layout_height="145dp"
@@ -131,13 +150,13 @@
         app:layout_constraintStart_toEndOf="@+id/booking" />
 
     <Button
-        android:id="@+id/profile"
+        android:id="@+id/chat_button"
         android:layout_width="65dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="1dp"
         android:background="#00FFFFFF"
         android:backgroundTint="#00FFFFFF"
-        app:icon="@drawable/user"
+        app:icon="@drawable/chat_button"
         app:iconTint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

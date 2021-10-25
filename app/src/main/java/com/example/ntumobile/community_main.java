@@ -29,6 +29,7 @@ public class community_main extends AppCompatActivity {
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation_login);
         communityImage.setAnimation(topAnim);
 
+        //navigation bar
         Button Home = (Button) findViewById(R.id.home_button);
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,7 +48,17 @@ public class community_main extends AppCompatActivity {
             }
         });
 
+        Button buttonChat = (Button) findViewById(R.id.chat_button);
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(community_main.this, chat_main.class);
+                startActivity(intent);
+            }
+        });
 
+
+        //on the tab
         Social = (Button) findViewById(R.id.social);
         Social.setOnClickListener(new View.OnClickListener() {
             @Override

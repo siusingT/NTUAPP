@@ -13,11 +13,15 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class register_info extends AppCompatActivity {
 
@@ -52,7 +56,7 @@ public class register_info extends AppCompatActivity {
         inputCourse = findViewById(R.id.inputCourse);
 
         database = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        mRef = database.getReference();
+        mRef = database.getReference().child("Users");
         mAuth = FirebaseAuth.getInstance();
 
         String email = getIntent().getStringExtra("email");
@@ -83,9 +87,31 @@ public class register_info extends AppCompatActivity {
                 String school = inputSchool.getEditText().getText().toString();
                 String course = inputCourse.getEditText().getText().toString();
 
-                mRef.child(userID).child("Profile").child("Name").setValue(name);
-                mRef.child(userID).child("Profile").child("School").setValue(school);
-                mRef.child(userID).child("Profile").child("Course").setValue(course);
+                HashMap<String, String> userMap = new HashMap<>();
+
+                userMap.put("name", name);
+                userMap.put("school", school);
+                userMap.put("course", course);
+                userMap.put("profile", "");
+                userMap.put("email", email);
+
+                mRef.child(userID).setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Intent intent = new Intent(register_info.this, Home.class);
+                            intent.putExtra("name",name);
+                            startActivity(intent);
+
+                            Toast.makeText(register_info.this, "Your information is saved successfully!", Toast.LENGTH_SHORT).show();
+
+                        } else {
+                            String message = task.getException().getMessage();
+                            Toast.makeText(register_info.this, "Error occured: " + message, Toast.LENGTH_SHORT).show();
+
+                        }
+                    }
+                });
 
                 //mAuth.signInWithEmailAndPassword(email,password);
                 Intent intent = new Intent(register_info.this, Home.class);

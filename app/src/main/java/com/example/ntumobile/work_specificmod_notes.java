@@ -16,8 +16,6 @@ public class work_specificmod_notes extends AppCompatActivity {
 
 
     private Button uploaditems, backButton;
-    private AlertDialog.Builder dialogBuilder;
-    private AlertDialog dialog;
 
 
 
@@ -30,7 +28,8 @@ public class work_specificmod_notes extends AppCompatActivity {
         uploaditems.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadDialog();
+                Intent upload = new Intent(work_specificmod_notes.this, upload.class);
+                startActivity(upload);
             }
         });
 
@@ -48,33 +47,30 @@ public class work_specificmod_notes extends AppCompatActivity {
     }
 
 
-
-    public void uploadDialog(){
-        dialogBuilder = new AlertDialog.Builder(this);
-        final View uploadPopupView = getLayoutInflater().inflate(R.layout.popout_upload, null);
-
-        Button uploadFile, uploadText, uploadImage;
-
-        uploadFile = (Button) uploadPopupView.findViewById(R.id.btnFile);
-        uploadText = (Button) uploadPopupView.findViewById(R.id.btnText);
-        uploadImage = (Button) uploadPopupView.findViewById(R.id.btnImage);
-
-        dialogBuilder.setView(uploadPopupView);
-        dialog = dialogBuilder.create();
-        dialog.show();
-
-        Button uploadbackbtn;
-        uploadbackbtn = (Button) uploadPopupView.findViewById(R.id.upload_backbtn);
-
-        uploadbackbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //define cancel button here
-                dialog.dismiss();
-            }
-        });
-
+//    public void uploadDialog(){
+//        dialogBuilder = new AlertDialog.Builder(this);
+//        final View uploadPopupView = getLayoutInflater().inflate(R.layout.popout_upload, null);
+//
+//        Button uploadFile, uploadText, uploadImage;
+//
+//        uploadFile = (Button) uploadPopupView.findViewById(R.id.btnFile);
+//        uploadText = (Button) uploadPopupView.findViewById(R.id.btnText);
+//        uploadImage = (Button) uploadPopupView.findViewById(R.id.btnImage);
+//
+//        dialogBuilder.setView(uploadPopupView);
+//        dialog = dialogBuilder.create();
+//        dialog.show();
+//
+//        Button uploadbackbtn;
+//        uploadbackbtn = (Button) uploadPopupView.findViewById(R.id.upload_backbtn);
+//
+//        uploadbackbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                //define cancel button here
+//                dialog.dismiss();
+//            }
+//        });
 
 
-    }
 }

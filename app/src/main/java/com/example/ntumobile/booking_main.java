@@ -43,7 +43,8 @@ public class booking_main extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
-        myRef = mFirebaseDatabase.getReference();
+        //myRef = mFirebaseDatabase.getReference();
+        myRef = mFirebaseDatabase.getReference().child("Users");
         FirebaseUser user = mAuth.getCurrentUser();
         userID = user.getUid();
 
@@ -88,6 +89,7 @@ public class booking_main extends AppCompatActivity {
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation_login);
         bookingImage.setAnimation(topAnim);
 
+        //bottom nag
         Button Home = (Button) findViewById(R.id.home_button);
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,6 +107,16 @@ public class booking_main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button buttonChat = (Button) findViewById(R.id.chat_button);
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(booking_main.this, chat_main.class);
+                startActivity(intent);
+            }
+        });
+
 
 
         Hive = (Button) findViewById(R.id.hive);
@@ -138,14 +150,6 @@ public class booking_main extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
-
-
-
-
 
     }
 

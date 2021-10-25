@@ -15,12 +15,13 @@
         android:layout_marginStart="20dp"
         android:layout_marginTop="36dp"
         android:drawableLeft="@drawable/go_back"
+        app:iconTint="#000000"
         android:insetLeft="0dp"
         app:backgroundTint="@color/background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
-
+    
     <TextView
         android:id="@+id/tvFriends"
         android:layout_width="130dp"
@@ -45,6 +46,18 @@
         android:text="Chat"
         app:backgroundTint="@color/button_dark_purple"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/addfriend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="8dp"
+        android:text="Add Friend"
+        app:backgroundTint="@color/button_dark_purple"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -56,7 +69,7 @@
         android:layout_marginTop="68dp"
         android:background="@drawable/bar_template2"
         android:drawableLeft="@drawable/ic_search"
-        android:hint=" Add Friends"
+        android:hint=" Find Friends"
         android:paddingLeft="20dp"
         android:paddingRight="10dp"
         android:paddingBottom="8dp"
@@ -72,5 +85,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/inputSearch" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/result_list"
+        android:layout_width="384dp"
+        android:layout_height="450dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="@+id/imageView2"
+        tools:ignore="MissingConstraints">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

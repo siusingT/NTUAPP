@@ -43,7 +43,7 @@
         android:layout_marginBottom="112dp"
         android:fontFamily="@font/sf_pro"
         android:freezesText="false"
-        android:text="Welcome to NTU Mobile ! "
+        android:text="Welcome to joiNTU ! "
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#FFFFFF"

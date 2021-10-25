@@ -47,13 +47,23 @@ public class social_main extends AppCompatActivity {
             }
         });
 
+        Button buttonChat = (Button) findViewById(R.id.chat_button);
+        buttonChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(social_main.this, chat_main.class);
+                startActivity(intent);
+            }
+        });
 
- /*       Cca = (Button) findViewById(R.id.cca);
+
+
+        Cca = (Button) findViewById(R.id.cca);
         Cca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(social_main.this, cca_main.class);
+                Intent intent = new Intent(social_main.this, social_cca.class);
                 startActivity(intent);
 
             }
@@ -64,12 +74,11 @@ public class social_main extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(social_main.this, jio_main.class);
+                Intent intent = new Intent(social_main.this, social_jio.class);
                 startActivity(intent);
             }
         });
 
-  */
 
     }
 

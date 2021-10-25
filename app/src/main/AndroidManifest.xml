@@ -12,6 +12,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NTUMobile">
         <activity
+            android:name=".profile"/>
+        <activity
+            android:name=".avatar"/>
+        <activity
             android:name=".register_info"
             android:exported="true" />
         <activity
@@ -28,6 +32,9 @@
             android:exported="true" />
         <activity
             android:name=".booking_main"
+            android:exported="true" />
+        <activity
+            android:name=".chat_main"
             android:exported="true" />
         <activity
             android:name=".splash_screen_main"
@@ -54,8 +61,52 @@
             android:name=".work_specificmod_notes"
             android:exported="true" />
         <activity
+            android:name=".work_friends"
+            android:exported="true" />
+        <activity
+            android:name=".addFriends"
+            android:exported="true" />
+        <activity
+            android:name=".viewFriendProfile"
+            android:exported="true" />
+        <activity
+            android:name=".upload"
+            android:exported="true"
+            android:theme="@style/Theme.NTUMobile.CustomTheme" />
+        <activity
+            android:name=".viewPDFfiles"
+            android:exported="true" />
+        <activity
+            android:name=".uploadPDFactivity"
+            android:exported="true" />
+        <activity
+            android:name=".uploadImage"
+            android:exported="true" />
+        <activity
+            android:name=".retrieveImage"
+            android:exported="true" />
+        <activity
             android:name=".social_main"
             android:exported="true" />
+        <activity
+            android:name=".social_cca"
+            android:exported="true" />
+        <activity
+            android:name=".social_cca_su"
+            android:exported="true" />
+        <activity
+            android:name=".social_jio"
+            android:exported="true" />
+        <activity
+            android:name=".social_jio_sports"
+            android:exported="true" />
+        <activity
+            android:name=".social_jio_sports_sessionInfo"
+            android:exported="true" />
+        <activity
+            android:name=".social_jio_sports_createSession"
+            android:exported="true" />
+
         <activity
             android:name=".Splash_Screen"
             android:exported="true">
