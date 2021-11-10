@@ -52,7 +52,7 @@ public class community_main extends AppCompatActivity {
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(community_main.this, chat_grp.class);
+                Intent intent = new Intent(community_main.this, chat_main.class);
                 startActivity(intent);
             }
         });

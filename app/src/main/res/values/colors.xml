@@ -16,8 +16,4 @@
     <color name="popout_blue">#C1DDF6</color>
     <color name="avatar_select">#0B2C49</color>
     <color name="avatar_notselect">#C1DDF6</color>
-    <color name="colorOtherMessage">#F0F0F3</color>
-    <color name="colorMyMessage">#AB85F9</color>
-    <color name="colorType">#d1d1d1</color>
-    <color name="colorOnline">#7fc768 </color>
 </resources>

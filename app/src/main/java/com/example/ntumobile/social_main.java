@@ -51,7 +51,7 @@ public class social_main extends AppCompatActivity {
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(social_main.this, chat_grp.class);
+                Intent intent = new Intent(social_main.this, chat_main.class);
                 startActivity(intent);
             }
         });

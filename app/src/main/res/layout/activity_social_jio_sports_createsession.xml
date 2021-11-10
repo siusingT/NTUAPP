@@ -51,15 +51,15 @@
 
     <EditText
         android:id="@+id/location_et"
-        android:layout_width="375dp"
-        android:layout_height="wrap_content"
         android:layout_below="@id/activity_et"
+        android:hint="Location"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
+        android:layout_width="375dp"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:ems="10"
-        android:gravity="center_horizontal"
-        android:hint="Location"
-        android:inputType="textPersonName" />
+        android:gravity="center_horizontal" />
 
     <EditText
         android:id="@+id/time_et"

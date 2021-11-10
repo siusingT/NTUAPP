@@ -144,7 +144,7 @@ public class social_jio_sports extends AppCompatActivity implements social_jio_s
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(social_jio_sports.this, chat_grp.class);
+                Intent intent = new Intent(social_jio_sports.this, chat_main.class);
                 startActivity(intent);
             }
         });

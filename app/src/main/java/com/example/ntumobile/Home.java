@@ -2,17 +2,12 @@ package com.example.ntumobile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.format.DateFormat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +18,6 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.Calendar;
-import java.util.Locale;
 
 public class Home extends AppCompatActivity {
 
@@ -38,11 +30,10 @@ public class Home extends AppCompatActivity {
     private FirebaseAuth mAuth; //
     private FirebaseUser mUser;
     private FirebaseDatabase mDatabase; //
-    private DatabaseReference myRef, avatarRef; //
+    private DatabaseReference myRef; //
     private FirebaseAuth.AuthStateListener mAuthListener;
 
     TextView nameText;
-    ImageView changeAvatar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,24 +59,15 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        /*ImageButton buttonChat = (ImageButton) findViewById(R.id.chat_button);
-        buttonChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view.getId()==R.id.chat_button){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.chat_button, new ChatFragment()).commit();
-                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                }
-            }
-        });*/
         ImageButton buttonChat = (ImageButton) findViewById(R.id.chat_button);
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this, chat_grp.class);
+                Intent intent = new Intent(Home.this, chat_main.class);
                 startActivity(intent);
             }
         });
+
 
         nameText = (TextView) findViewById(R.id.nameText);
         date = (TextView) findViewById(R.id.date);
@@ -117,7 +99,7 @@ public class Home extends AppCompatActivity {
         chat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent chat = new Intent(Home.this,chat_grp.class );
+                Intent chat = new Intent(Home.this,chat_main.class );
                 startActivity(chat);
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
             }
@@ -134,33 +116,6 @@ public class Home extends AppCompatActivity {
 
 
         currentUserID = mAuth.getCurrentUser().getUid();
-
-        avatarRef = mDatabase.getReference("Users");
-        avatarRef .child(currentUserID).child("userID").setValue(currentUserID);
-        Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-        String dateTime = "Last seen at " + DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
-        avatarRef.child(currentUserID).child("onlineStatus").setValue(dateTime);
-
-        avatarRef.child(currentUserID).child("Avatar Selected").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (snapshot.exists())
-                {
-                    if (snapshot!=null)
-                    {
-                        String stringAvatarID = snapshot.child("AvatarID").getValue().toString();
-                        int avatarID = Integer.parseInt(stringAvatarID);
-                        changeAvatar= findViewById(R.id.imageView12);
-                        changeAvatar.setImageResource(avatarID);
-                    }
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
 
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
