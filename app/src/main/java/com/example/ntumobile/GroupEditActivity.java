@@ -12,6 +12,7 @@ import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.text.format.DateFormat;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -60,7 +61,7 @@ public class GroupEditActivity extends AppCompatActivity {
     //UI views
     private ImageView groupIconIv;
     private EditText groupTitleEt, groupDescriptionEt;
-    private FloatingActionButton updateGroupBtn;
+    private Button updateGroupBtn;
 
     private ProgressDialog progressDialog;
 

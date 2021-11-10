@@ -63,7 +63,7 @@
         android:layout_marginBottom="50dp"
         android:background="@drawable/button_template"
         android:backgroundTint="@color/button_dark_purple"
-        android:text="Create"
+        android:text="Update"
         android:textColor="@color/black"
         android:textSize="18sp" />
 
