@@ -38,16 +38,70 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/chat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="8dp"
-        android:text="Chat"
-        app:backgroundTint="@color/button_dark_purple"
+        android:id="@+id/home_button"
+        android:layout_width="65dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="4dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/home"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintHorizontal_bias="0.101"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/booking"
+        android:layout_width="65dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="4dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/booking2"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.364"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="672dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/rectangle_17" />
+
+    <Button
+        android:id="@+id/current_community"
+        android:layout_width="65dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="27dp"
+        android:layout_marginBottom="4dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/communities"
+        app:iconTint="#000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/booking" />
+
+    <Button
+        android:id="@+id/chat_button"
+        android:layout_width="65dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="1dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/chat_button"
+        app:iconTint="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toEndOf="@+id/current_community" />
 
     <Button
         android:id="@+id/addfriend"

@@ -161,7 +161,6 @@
         tools:listitem="@layout/row_chatlist"
         android:layout_marginTop="190dp"
         android:layout_marginBottom="60dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

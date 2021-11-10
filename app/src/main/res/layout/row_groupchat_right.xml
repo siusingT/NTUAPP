@@ -28,7 +28,6 @@
         android:textColor="@color/white"
         android:textSize="16sp"/>
 
-    <!--ImageView: for image message-->
     <ImageView
         android:id="@+id/messageIv"
         android:layout_width="200dp"

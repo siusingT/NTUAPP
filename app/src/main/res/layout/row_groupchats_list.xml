@@ -67,6 +67,7 @@
             android:text="12:12 PM"
             android:fontFamily="sans-serif"
             android:singleLine="true"/>
+
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>

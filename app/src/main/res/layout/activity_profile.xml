@@ -157,16 +157,24 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/imageView12"
+    <LinearLayout
         android:layout_width="99dp"
-        android:layout_height="96dp"
+        android:layout_height="99dp"
+        android:layout_marginStart="284dp"
         android:layout_marginTop="548dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.919"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dp" />
+        android:background="@drawable/circle">
+
+        <ImageView
+            android:id="@+id/imageView12"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:scrollY="-10dp"
+            android:src="@drawable/gee_me_001" />
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView6"

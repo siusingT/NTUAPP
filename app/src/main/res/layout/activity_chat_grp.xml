@@ -14,7 +14,6 @@
         android:layout_height="80dp"
         android:background="#c1ddf6"
         app:layout_constraintTop_toTopOf="parent"/>
-        //app:menu="@menu/menu_main"
 
     <Button
     android:id="@+id/action_create_group"

@@ -10,16 +10,16 @@
 
     <Button
         android:id="@+id/back_modspg"
-        android:layout_width="43dp"
-        android:layout_height="39dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
-        android:drawableLeft="@drawable/go_back"
-        android:insetLeft="0dp"
-        app:backgroundTint="@color/background"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:layout_width="70dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="352dp"
+        android:background="#00FFFFFF"
+        android:backgroundTint="#00FFFFFF"
+        app:icon="@drawable/go_back"
+        app:iconTint="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/modName"
@@ -95,7 +95,7 @@
             android:text="Quizzes"
             app:backgroundTint="@color/button_light_purple"
             tools:layout_editor_absoluteX="221dp"
-            tools:layout_editor_absoluteY="249dp" />
+            tools:layout_editor_absoluteY="245dp" />
 
         <Button
             android:id="@+id/btnNotes"
@@ -147,7 +147,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginBottom="75dp"
+        android:layout_marginBottom="100dp"
         android:text="Participants"
         android:textSize="24dp"
         android:textStyle="bold"
@@ -155,31 +155,168 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView"
+        android:id="@+id/avatars"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvParticipants">
+        android:layout_marginStart="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvParticipants"
+        app:layout_constraintVertical_bias="0.25">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-<!--            <ImageView-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/circle"-->
-<!--                />-->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
 
 
+                <ImageView
+                    android:id="@+id/avatar"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_010" />
 
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Desmond"
+                    android:textAlignment="center" />
 
+                <ImageView
+                    android:id="@+id/avatar1"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_024" />
 
+                <TextView
+                    android:id="@+id/name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar1"
+                    android:layout_marginStart="92dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Felicia"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/avatar2"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="150dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_001" />
+
+                <TextView
+                    android:id="@+id/name2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar2"
+                    android:layout_marginStart="163dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Bryan"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/avatar3"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="220dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_018" />
+
+                <TextView
+                    android:id="@+id/name3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar3"
+                    android:layout_marginStart="237dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Jane"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/avatar4"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="290dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_003" />
+
+                <TextView
+                    android:id="@+id/name4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar4"
+                    android:layout_marginStart="292dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Xiao Ming"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/avatar5"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="360dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_008" />
+
+                <TextView
+                    android:id="@+id/name5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar5"
+                    android:layout_marginStart="365dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Benjamin"
+                    android:textAlignment="center" />
+
+                <ImageView
+                    android:id="@+id/avatar6"
+                    android:layout_width="65dp"
+                    android:layout_height="68dp"
+                    android:layout_marginStart="430dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/circle"
+                    android:src="@drawable/gee_me_023" />
+
+                <TextView
+                    android:id="@+id/name6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/avatar6"
+                    android:layout_marginStart="450dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="Kelly"
+                    android:textAlignment="center" />
+
+            </RelativeLayout>
         </LinearLayout>
     </HorizontalScrollView>
 

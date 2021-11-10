@@ -85,7 +85,6 @@
         android:inputType = "number"
         android:gravity="center_horizontal" />
 
-
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createsession_btn"
         android:layout_width="340dp"

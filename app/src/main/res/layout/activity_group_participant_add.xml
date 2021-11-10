@@ -15,8 +15,8 @@
         android:paddingBottom="10dp"
         android:text="Add Participants"
         android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textSize="18sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/usersRv"

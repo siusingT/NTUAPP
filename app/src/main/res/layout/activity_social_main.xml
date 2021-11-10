@@ -74,7 +74,7 @@
     <Button
         android:id="@+id/jio"
         android:fontFamily="@font/sf_pro"
-        android:text="JIO"
+        android:text="Gather"
         android:textSize="20sp"
         android:layout_width="170dp"
         android:layout_height="145dp"
