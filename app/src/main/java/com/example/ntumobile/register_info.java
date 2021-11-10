@@ -92,8 +92,11 @@ public class register_info extends AppCompatActivity {
                 userMap.put("name", name);
                 userMap.put("school", school);
                 userMap.put("course", course);
-                userMap.put("profile", "");
                 userMap.put("email", email);
+                userMap.put("uid", userID);
+
+                HashMap<Object, String> hashMap = new HashMap<>();
+                hashMap.put("onlineStatus", "online");
 
                 mRef.child(userID).setValue(userMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

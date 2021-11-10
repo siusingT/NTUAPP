@@ -60,7 +60,7 @@ public class work_main extends AppCompatActivity {
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(work_main.this, chat_main.class);
+                Intent intent = new Intent(work_main.this, chat_grp.class);
                 startActivity(intent);
             }
         });

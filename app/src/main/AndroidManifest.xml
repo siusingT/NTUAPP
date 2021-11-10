@@ -3,6 +3,8 @@
     package="com.example.ntumobile">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -11,10 +13,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.NTUMobile">
-        <activity
-            android:name=".profile"/>
-        <activity
-            android:name=".avatar"/>
+        <activity android:name=".GroupEditActivity" />
+        <activity android:name=".GroupInfoActivity" />
+        <activity android:name=".GroupParticipantAddActivity" />
+        <activity android:name=".GroupChatActivity"/>
+        <activity android:name=".GroupCreateActivity" />
+        <activity android:name=".ChatActivity" />
+        <activity android:name=".profile" />
+        <activity android:name=".avatar" />
         <activity
             android:name=".register_info"
             android:exported="true" />
@@ -35,6 +41,9 @@
             android:exported="true" />
         <activity
             android:name=".chat_main"
+            android:exported="true" />
+        <activity
+            android:name=".chat_grp"
             android:exported="true" />
         <activity
             android:name=".splash_screen_main"
@@ -106,7 +115,6 @@
         <activity
             android:name=".social_jio_sports_createSession"
             android:exported="true" />
-
         <activity
             android:name=".Splash_Screen"
             android:exported="true">
@@ -116,6 +124,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.example.ntumobile.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/paths" />
+        </provider>
     </application>
 
 </manifest>

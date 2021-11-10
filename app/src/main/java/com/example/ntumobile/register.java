@@ -30,12 +30,8 @@ public class register extends AppCompatActivity {
     ProgressDialog mLoadingBar;
     private FirebaseDatabase mDatabase;
 
-
-
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
