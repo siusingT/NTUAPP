@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
@@ -20,4 +21,5 @@
     <color name="colorMyMessage">#AB85F9</color>
     <color name="colorType">#d1d1d1</color>
     <color name="colorOnline">#7fc768 </color>
+
 </resources>

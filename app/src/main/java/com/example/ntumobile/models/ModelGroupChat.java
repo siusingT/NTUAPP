@@ -44,4 +44,5 @@ public class ModelGroupChat {
     public void setType(String type) {
         this.type = type;
     }
+
 }

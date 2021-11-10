@@ -134,5 +134,4 @@
                 android:resource="@xml/paths" />
         </provider>
     </application>
-
 </manifest>

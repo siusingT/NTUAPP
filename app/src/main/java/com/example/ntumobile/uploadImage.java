@@ -45,12 +45,14 @@ public class uploadImage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_imageupload);
 
+
+
         imageViewAdd = findViewById(R.id.imageViewAdd);
         inputImageName = findViewById(R.id.inputImageName);
         textViewProgress = findViewById(R.id.textViewProgress);
         progressBar = findViewById(R.id.progressBar);
         btnUpload = findViewById(R.id.btnUpload);
-        btnShow = findViewById(R.id.btnShow);
+       // btnShow = findViewById(R.id.btnShow);
 
         textViewProgress.setVisibility(View.GONE);
         progressBar.setVisibility(View.GONE);
@@ -78,12 +80,31 @@ public class uploadImage extends AppCompatActivity {
                 }
             }
         });
-        btnShow.setOnClickListener(new View.OnClickListener() {
+        /*btnShow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SendUserToTestRetrieveActivity();
             }
         });
+
+              Button back =(Button) findViewById(R.id.back_notes);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent back = new Intent(uploadImage.this, work_specificmod_notes.class);
+                startActivity(back);
+            }
+        });
+        */
+
+        Button back =(Button) findViewById(R.id.back_notes);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SendUserToTestRetrieveActivity();
+            }
+        });
+
     }
 
     private void SendUserToTestRetrieveActivity() {

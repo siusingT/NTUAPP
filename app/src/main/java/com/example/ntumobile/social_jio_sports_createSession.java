@@ -1,6 +1,5 @@
 package com.example.ntumobile;
 
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,7 +30,7 @@ public class social_jio_sports_createSession extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private DatabaseReference myRef;
 
-    int count;
+    int count,count_session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +48,8 @@ public class social_jio_sports_createSession extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
         myRef = mFirebaseDatabase.getReference();
+        FirebaseUser user = mAuth.getCurrentUser();
+        String userID = user.getUid();
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -75,15 +76,34 @@ public class social_jio_sports_createSession extends AppCompatActivity {
             }
         });
 
+        // Read from the database
+        myRef.child(userID).child("SessionInfo").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                if (dataSnapshot.exists()){
+                    count_session = (int)dataSnapshot.getChildrenCount();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                toastMessage("Error");
+            }
+        });
+
         mCreateSession.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String countt = String.valueOf(count);
+                String countt_session = String.valueOf(count_session);
                 String newActivity = mNewActivity.getText().toString();
                 String newLocation = mNewLocation.getText().toString();
                 String newTime = mNewTime.getText().toString();
                 String newPax = mNewPax.getText().toString();
-                String currPax = "0";
+                String currPax = "1";
 
                 if(!newActivity.equals("")){
                     myRef.child("Session").child(countt).child("Activity").setValue(newActivity);
@@ -110,6 +130,11 @@ public class social_jio_sports_createSession extends AppCompatActivity {
 
                 toastMessage("Session Created");
                 Intent intent = new Intent(social_jio_sports_createSession.this, social_jio_sports.class);
+                FirebaseUser user = mAuth.getCurrentUser();
+                String userID = user.getUid();
+                myRef.child(userID).child("SessionInfo").child(countt_session).child("Activity").setValue(newActivity);
+                myRef.child(userID).child("SessionInfo").child(countt_session).child("Location").setValue(newLocation);
+                myRef.child(userID).child("SessionInfo").child(countt_session).child("Time").setValue(newTime);
                 startActivity(intent);
             }
         });

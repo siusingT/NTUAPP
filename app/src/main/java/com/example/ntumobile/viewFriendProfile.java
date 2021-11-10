@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 //import com.google.firebase.firestore.auth.User;
 //import com.google.protobuf.Value;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.HashMap;
@@ -33,18 +36,26 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class viewFriendProfile extends AppCompatActivity {
 
-    DatabaseReference mUserRef, requestRef, friendRef;;
+    DatabaseReference mUserRef, mUserRef1, requestRef, friendRef;;
     FirebaseAuth mAuth;
     FirebaseUser mUser;
     FirebaseDatabase database;
+    StorageReference StorageRef;
+    DatabaseReference avatarRef;
+    private String currentUserID;
 
     String name,profileImageUrl;
+    ImageView changeAvatar;
 
-    CircleImageView profileImage;
+    ImageView profileImage;
     TextView Name;
     private Button btnSendFriendRequest, btnDeleteFriend;
 
+
     String CurrentState= "nothing_happen";
+
+    String myProfileImageUrl,myName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,18 +66,26 @@ public class viewFriendProfile extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
         mUserRef = database.getReference().child("Users").child(userID);
+        mUserRef1 = database.getReference().child("Users");
         requestRef= database.getReference().child("Friend Request");
         friendRef= database.getReference().child("Friends");
+        StorageRef = FirebaseStorage.getInstance("gs://ntu-mobile-9eb73.appspot.com/").getReference("User's Avatar");
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
 
-        profileImage = findViewById(R.id.profileImage);
+        avatarRef = database.getReference("Users");
+        currentUserID = mAuth.getCurrentUser().getUid();
+
+
+        profileImage = findViewById(R.id.imageView12);
         Name = findViewById(R.id.outputUsername);
 
         btnSendFriendRequest = findViewById(R.id.btnSendFriendRequest);
         btnDeleteFriend = findViewById(R.id.btnDeleteFriend);
 
         LoadUser();
+
+        LoadMyProfile();
 
         btnSendFriendRequest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +100,28 @@ public class viewFriendProfile extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 DeleteFriend(userID);
+            }
+        });
+
+        avatarRef.child(currentUserID).child("Avatar Selected").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    if (snapshot!=null)
+                    {
+                        String stringAvatarID = snapshot.child("AvatarID").getValue().toString();
+                        int avatarID = Integer.parseInt(stringAvatarID);
+                        changeAvatar= findViewById(R.id.imageView12);
+                        changeAvatar.setImageResource(avatarID);
+
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
             }
         });
 
@@ -278,12 +319,19 @@ public class viewFriendProfile extends AppCompatActivity {
                         //hashMap.put("status","friend");
                         hashMap.put("name", name);
                         //hashMap.put("profileImageUrl", profileImageUrl);
+
+
+                        final HashMap hashMap1=new HashMap();
+                        //hashMap1.put("status","friend");
+                        hashMap1.put("name", myName);
+                        //hashMap1.put("profileImageUrl", myProfileImageUrl);
+
                         friendRef.child(mUser.getUid()).child(userID).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
                             @Override
                             public void onComplete(@NonNull Task task) {
                                 if(task.isSuccessful())
                                 {
-                                    friendRef.child(userID).child(mUser.getUid()).updateChildren(hashMap).addOnCompleteListener(new OnCompleteListener() {
+                                    friendRef.child(userID).child(mUser.getUid()).updateChildren(hashMap1).addOnCompleteListener(new OnCompleteListener() {
                                         @Override
                                         public void onComplete(@NonNull Task task) {
                                             Toast.makeText(viewFriendProfile.this, "you added a friend", Toast.LENGTH_SHORT).show();
@@ -318,6 +366,35 @@ public class viewFriendProfile extends AppCompatActivity {
                     name=snapshot.child("name").getValue().toString();
 
                     //Picasso.get().load(profileImageUrl).into(profileImage);
+                    Name.setText(name);
+
+                }
+                else
+                {
+                    Toast.makeText(viewFriendProfile.this, "Data not found", Toast.LENGTH_SHORT).show();
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+                Toast.makeText(viewFriendProfile.this, ""+error.getMessage().toString(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
+    }
+
+    private void LoadMyProfile() {
+        mUserRef1.child(mUser.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists())
+                {
+                    //myProfileImageUrl=snapshot.child("profileImage").getValue().toString();
+                    myName=snapshot.child("name").getValue().toString();
+
+                    //Picasso.get().load(myProfileImageUrl).into(profileImage);
                     Name.setText(name);
                 }
                 else

@@ -24,7 +24,6 @@ public class social_cca extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_cca);
 
-
         ImageView ccaImage = (ImageView)findViewById(R.id.cca_image);
         topAnim = AnimationUtils.loadAnimation(this,R.anim.top_animation_login);
         ccaImage.setAnimation(topAnim);

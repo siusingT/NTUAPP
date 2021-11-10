@@ -39,7 +39,6 @@ public class AdapterGroupChatList extends RecyclerView.Adapter<AdapterGroupChatL
     @NonNull
     @Override
     public HolderGroupChatList onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //inflate layout
         View view = LayoutInflater.from(context).inflate(R.layout.row_groupchats_list, parent, false);
 
         return new HolderGroupChatList(view);
@@ -98,7 +97,6 @@ public class AdapterGroupChatList extends RecyclerView.Adapter<AdapterGroupChatL
                             String sender = ""+ds.child("sender").getValue();
                             String messageType = ""+ds.child("type").getValue();
 
-                            //convert time
                             //convert time stamp to dd/mm/yyyy hh:mm am/pm
                             Calendar cal = Calendar.getInstance(Locale.ENGLISH);
                             cal.setTimeInMillis(Long.parseLong(timestamp));

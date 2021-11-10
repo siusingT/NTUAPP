@@ -50,7 +50,6 @@ public class booking_main extends AppCompatActivity {
 
         count = getIntent().getIntExtra("countt", 0);
 
-
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -63,7 +62,6 @@ public class booking_main extends AppCompatActivity {
                     // User is signed out
                     //toastMessage("Successfully signed out.");
                 }
-                // ...
             }
         };
 

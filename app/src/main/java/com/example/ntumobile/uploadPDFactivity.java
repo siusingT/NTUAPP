@@ -45,7 +45,7 @@ public class uploadPDFactivity extends AppCompatActivity {
         editPDFName = (EditText) findViewById(R.id.txt_pdfName);
         btnUpload = (Button) findViewById(R.id.btn_upload);
 
-        DataRef = FirebaseDatabase.getInstance().getReference("Users").child(currentUserID);
+        DataRef = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users").child(currentUserID);
         StorageRef = FirebaseStorage.getInstance().getReference();
 
         btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -92,10 +92,10 @@ public class uploadPDFactivity extends AppCompatActivity {
                         Task<Uri> uri = taskSnapshot.getStorage().getDownloadUrl();
                         while (!uri.isComplete());
                         Uri url = uri.getResult();
-                        String foldername = "abc";
+                        //String foldername = "abc";
 
                         uploadPDF uploadPDF = new uploadPDF(editPDFName.getText().toString(), url.toString());
-                        DataRef.setValue(foldername);
+                        //DataRef.setValue(foldername);
                         DataRef.child("Notes").child(key).setValue(uploadPDF);
 
                         Toast.makeText(uploadPDFactivity.this, "File Uploaded", Toast.LENGTH_SHORT).show();

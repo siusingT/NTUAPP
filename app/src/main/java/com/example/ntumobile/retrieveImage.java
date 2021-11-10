@@ -37,14 +37,14 @@ public class retrieveImage extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         recyclerView.setHasFixedSize(true);
         DataRef = FirebaseDatabase.getInstance().getReference().child("Test");
-        homeBtn = findViewById(R.id.test_homeBtn);
+        /*homeBtn = findViewById(R.id.test_homeBtn);
 
         homeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 SendUserToMainActivity();
             }
-        });
+        });*/
 
         LoadData();
     }
@@ -70,7 +70,8 @@ public class retrieveImage extends AppCompatActivity {
             @Override
             public ImageViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_single_view, parent, false);
+                //View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_single_view, parent, false);
+                View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_work_specificmod_notes, parent, false);
                 return new ImageViewHolder(v);
             }
         };

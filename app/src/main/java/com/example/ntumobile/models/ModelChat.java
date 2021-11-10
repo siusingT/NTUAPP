@@ -63,5 +63,6 @@ public class ModelChat {
     public void setSeen(boolean seen) {
         isSeen = seen;
     }
+
 }
 

@@ -189,14 +189,11 @@ public class chat_main extends AppCompatActivity {
                 {
                     Toast.makeText(chat_main.this, "Data not found", Toast.LENGTH_SHORT).show();
                 }
-
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
                 Toast.makeText(chat_main.this, ""+error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-
             }
         });
     }
@@ -233,65 +230,6 @@ public class chat_main extends AppCompatActivity {
             }
         });
     }
-
-    /*private void loadChats(String s) {
-
-        Query query = mUserRef.child(mUser.getUid());
-        options = new FirebaseRecyclerOptions.Builder<Friends>().setQuery(query,Friends.class).build();
-        adapter = new FirebaseRecyclerAdapter<Friends, chat_main.FriendViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull chat_main.FriendViewHolder holder, int position, @NonNull Friends model) {
-                //Picasso.get().load(model.getProfileImageUrl()).into(holder.profile_image);
-                holder.Name.setText(model.name);
-                String hisUid = getRef(position).getKey();
-                String name = avatarRef.child(currentUserID).child("name").toString();
-
-                Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-                String dateTime = "Last seen at " + DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
-                avatarRef.child(currentUserID).child("onlineStatus").setValue(dateTime);
-                avatarRef.child(currentUserID).child("Avatar Selected").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        if (snapshot.exists()) {
-                            if (snapshot != null) {
-                                String stringAvatarID = snapshot.child("AvatarID").getValue().toString();
-                                int avatarID = Integer.parseInt(stringAvatarID);
-                                changeAvatar= findViewById(R.id.imageView12);
-                                changeAvatar.setImageResource(avatarID);
-
-                                holder.itemView.setOnClickListener(new View.OnClickListener() {
-                                    @Override
-                                    public void onClick(View view) {
-                                        Intent chatIntent = new Intent(chat_main.this, ChatActivity.class);
-                                        chatIntent.putExtra("userKey", hisUid);
-                                        avatarRef.child(currentUserID).child("onlineStatus").setValue("online");
-                                        startActivity(chatIntent);
-                                    }
-                                });
-
-                            }
-                        }
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError error) {
-
-                    }
-                });
-            }
-
-            @NonNull
-            @Override
-            public chat_main.FriendViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.friends_layout,parent,false);
-
-                return new chat_main.FriendViewHolder(view);
-            }
-        };
-        adapter.startListening();
-        recyclerView.setAdapter(adapter);
-
-    }*/
 
     private void lastMessage(final String userId) {
         DatabaseReference reference = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Chats");

@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -60,10 +61,10 @@ public class avatar extends AppCompatActivity {
         setContentView(R.layout.activity_avatar);
 
         mAuth = FirebaseAuth.getInstance();
-        db = FirebaseDatabase.getInstance();
+        db = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/");
         currentUserID = mAuth.getCurrentUser().getUid();
         UsersRef = db.getReference().child("Users").child(currentUserID);
-        StorageRef = FirebaseStorage.getInstance().getReference("User's Avatar");
+        StorageRef = FirebaseStorage.getInstance("gs://ntu-mobile-9eb73.appspot.com/").getReference("User's Avatar");
 
         saveButton = (Button) findViewById(R.id.saveBtn);
         maleButton = (Button) findViewById(R.id.maleBtn);
@@ -83,6 +84,8 @@ public class avatar extends AppCompatActivity {
                 maleBtnClicked = true;
                 gridView.setAdapter(maleCustomAdapter);
                 selectedImage.setImageResource(maleAvatar[0]);
+                maleButton.setBackgroundColor(Color.parseColor("#0b2c49"));
+                femaleButton.setBackgroundColor(Color.parseColor("#c1ddf6"));
             }
         });
 
@@ -92,6 +95,8 @@ public class avatar extends AppCompatActivity {
                 maleBtnClicked = false;
                 gridView.setAdapter(femaleCustomAdapter);
                 selectedImage.setImageResource(femaleAvatar[0]);
+                maleButton.setBackgroundColor(Color.parseColor("#c1ddf6"));
+                femaleButton.setBackgroundColor(Color.parseColor("#0b2c49"));
             }
         });
 
@@ -102,6 +107,7 @@ public class avatar extends AppCompatActivity {
                 {
                     selectedImage.setImageResource(maleAvatar[i]);
                     num = i+2;
+                    toastMessage(String.valueOf(maleAvatar[i]));
                 }else
                 {
                     selectedImage.setImageResource(femaleAvatar[i]);
@@ -124,19 +130,19 @@ public class avatar extends AppCompatActivity {
     private void SendUserToMainActivity() {
         Intent testIntent = new Intent(avatar.this, profile.class);
         testIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        int avatarID = 2131230840 + num; // gee_me_001 has an id of 2131230842, 002 has id of 2131230843 so on and so forth. num is w.r.t to grid position +2
+        int avatarID = 2131165331 + num; // gee_me_001 has an id of 2131230842, 002 has id of 2131230843 so on and so forth. num is w.r.t to grid position +2
         testIntent.putExtra("avatarID", avatarID);  // pass your values and retrieve them in the other Activity using keyName
         startActivity(testIntent);
         finish();
     }
 
     private void SaveAvatar() {
-        int avatarID = 2131230840 + num; // gee_me_001 has an id of 2131230842, 002 has id of 2131230843 so on and so forth. num is w.r.t to grid position +2
+        int avatarID = 2131165331 + num; // gee_me_001 has an id of 2131230842, 002 has id of 2131230843 so on and so forth. num is w.r.t to grid position +2
         Uri imageUri = Uri.parse("android.resource://com.example.ntumobile/" + String.valueOf(avatarID));
 
-        //String key = UsersRef.push().getKey();
+        String key = UsersRef.push().getKey();
 
-        String key = "Avatar Selected";
+        //String key = "Avatar Selected";
         StorageRef.child(key).putFile(imageUri)
                 .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
@@ -150,7 +156,7 @@ public class avatar extends AppCompatActivity {
                         hashMap.put("AvatarID", stringAvatarID);
                         hashMap.put("Avatar Url", downloadUrl.toString());
 
-                        UsersRef.child(key).setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
+                        UsersRef.child("Avatar Selected").setValue(hashMap).addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void aVoid) {
                                 toastMessage("Success");

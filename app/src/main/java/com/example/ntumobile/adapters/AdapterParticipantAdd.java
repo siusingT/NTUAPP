@@ -46,7 +46,6 @@ public class AdapterParticipantAdd extends RecyclerView.Adapter<AdapterParticipa
     @NonNull
     @Override
     public HolderParticipantAdd onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //inflate layout
         View view = LayoutInflater.from(context).inflate(R.layout.row_participant_add, parent, false);
 
         return new HolderParticipantAdd(view);

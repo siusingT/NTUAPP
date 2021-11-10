@@ -25,7 +25,6 @@ import java.util.HashMap;
 
 public class register_info extends AppCompatActivity {
 
-
     private TextInputLayout inputName, inputSchool,inputCourse;
     ImageButton next;
     Animation topAnim;

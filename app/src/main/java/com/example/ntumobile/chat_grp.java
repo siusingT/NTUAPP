@@ -159,7 +159,6 @@ public class chat_grp extends AppCompatActivity {
                             ModelGroupChatList model = ds.getValue(ModelGroupChatList.class);
                             groupChatLists.add(model);
                         }
-
                     }
                 }
                 adapterGroupChatList = new AdapterGroupChatList(chat_grp.this, groupChatLists);

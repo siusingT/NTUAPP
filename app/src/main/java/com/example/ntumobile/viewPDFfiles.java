@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -29,11 +30,16 @@ public class viewPDFfiles extends AppCompatActivity {
     private ListView listView;
     DatabaseReference DataRef;
     List<uploadPDF> uploadedPDF;
+    private FirebaseAuth mAuth;
+    String currentUserID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_work_viewpdffiles);
+
+        mAuth = FirebaseAuth.getInstance();
+        currentUserID = mAuth.getCurrentUser().getUid();
 
         listView = (ListView) findViewById(R.id.myListView);
         uploadedPDF = new ArrayList<>();
@@ -55,7 +61,7 @@ public class viewPDFfiles extends AppCompatActivity {
 
     private void ViewAllFiles() {
 
-        DataRef = FirebaseDatabase.getInstance().getReference().child("PDF Test");
+        DataRef = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users").child(currentUserID).child("Notes");
         DataRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

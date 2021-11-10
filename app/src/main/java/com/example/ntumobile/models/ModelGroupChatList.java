@@ -72,4 +72,5 @@ public class ModelGroupChatList {
     public void setParticipants(String participants) {
         this.participants = participants;
     }
+
 }

@@ -102,7 +102,6 @@ public class social_jio_sports extends AppCompatActivity implements social_jio_s
 
                 }
                 adapter.notifyDataSetChanged();
-
             }
 
             @Override

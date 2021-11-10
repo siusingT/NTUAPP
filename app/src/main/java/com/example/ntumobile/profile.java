@@ -32,9 +32,10 @@ public class profile extends AppCompatActivity {
     private FirebaseAuth mAuth; //
     private FirebaseUser mUser;
     private FirebaseDatabase mDatabase; //
-    private DatabaseReference myRef; //
+    private DatabaseReference myRef, avatarRef; //
     private FirebaseAuth.AuthStateListener mAuthListener;
     TextView nameText,email,school,course;
+    ImageView changeAvatar;
 
 
     @Override
@@ -91,6 +92,30 @@ public class profile extends AppCompatActivity {
 
 
         currentUserID = mAuth.getCurrentUser().getUid();
+
+        avatarRef = mDatabase.getReference("Users");
+
+
+        avatarRef.child(currentUserID).child("Avatar Selected").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists())
+                {
+                    if (snapshot!=null)
+                    {
+                        String stringAvatarID = snapshot.child("AvatarID").getValue().toString();
+                        int avatarID = Integer.parseInt(stringAvatarID);
+                        changeAvatar= findViewById(R.id.imageView12);
+                        changeAvatar.setImageResource(avatarID);
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {

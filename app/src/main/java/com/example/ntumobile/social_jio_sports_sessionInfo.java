@@ -36,6 +36,24 @@ public class social_jio_sports_sessionInfo extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_social_jio_sports_sessioninfo);
 
+        Button back = (Button)findViewById(R.id.back_sports);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent back = new Intent(social_jio_sports_sessionInfo.this, social_jio_sports.class);
+                startActivity(back);
+            }
+        });
+
+        Button goToChat = (Button)findViewById(R.id.chatSession_btn);
+        goToChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent back = new Intent(social_jio_sports_sessionInfo.this, chat_grp.class);
+                startActivity(back);
+            }
+        });
+
         activityInfo = findViewById(R.id.activityInfo_tv);
         locationInfo = findViewById(R.id.locationInfo_tv);
         timeInfo = findViewById(R.id.timeInfo_tv);

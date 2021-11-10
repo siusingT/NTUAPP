@@ -121,14 +121,6 @@ public class AdapterChatlist extends RecyclerView.Adapter<AdapterChatlist.MyHold
             });
         }
 
-        /*private void checkOnlineStatus(String status) {
-            DatabaseReference dbRef = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users").child(currentUserID);
-            HashMap<String, Object> hashMap = new HashMap<>();
-            hashMap.put("onlineStatus", status);
-            //update value of onlineStatus of current user
-            dbRef.updateChildren(hashMap);
-        }*/
-
         //handle click of user in chatlist
         myHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

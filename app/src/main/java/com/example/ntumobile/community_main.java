@@ -63,7 +63,6 @@ public class community_main extends AppCompatActivity {
         Social.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(community_main.this, social_main.class);
                 startActivity(intent);
 
@@ -74,7 +73,6 @@ public class community_main extends AppCompatActivity {
         Work.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(community_main.this, work_main.class);
                 startActivity(intent);
             }

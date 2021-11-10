@@ -1,7 +1,7 @@
 package com.example.ntumobile.models;
 
 public class ModelChatlist {
-    String id, name; //we will need this id to get chat list, sender/receiver uid
+    String id, name;
 
     public ModelChatlist(String id, String name) {
         this.id = id;

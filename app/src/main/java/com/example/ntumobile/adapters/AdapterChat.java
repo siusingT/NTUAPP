@@ -28,7 +28,6 @@ import java.util.Locale;
 
 public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
 
-
     private static final int MSG_TYPE_LEFT = 0;
     private static final int MSG_TYPE_RIGHT = 1;
     Context context;
@@ -46,7 +45,6 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
     @NonNull
     @Override
     public MyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        //inflate layouts: row_chat_left.xml for receiver, row_Chat_right.xml for sender
         if (i==MSG_TYPE_RIGHT){
             View view = LayoutInflater.from(context).inflate(R.layout.row_chat_right, viewGroup, false);
             return new MyHolder(view);
@@ -70,13 +68,11 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
         String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
 
         if (type.equals("text")){
-            //text message
             myHolder.messageTv.setVisibility(View.VISIBLE);
             myHolder.messageIv.setVisibility(View.GONE);
             myHolder.messageTv.setText(message);
         }
         else {
-            //image message
             myHolder.messageIv.setVisibility(View.VISIBLE);
             myHolder.messageTv.setVisibility(View.GONE);
             try{
@@ -129,7 +125,6 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
     class MyHolder extends RecyclerView.ViewHolder{
         ImageView profileIv, messageIv;
         TextView messageTv, timeTv, isSeenTv;
-        //LinearLayout messageLayout;
 
         public MyHolder(@NonNull View itemView) {
             super(itemView);
@@ -139,7 +134,6 @@ public class AdapterChat extends RecyclerView.Adapter<AdapterChat.MyHolder> {
             messageTv = itemView.findViewById(R.id.messageTv);
             timeTv = itemView.findViewById(R.id.timeTv);
             isSeenTv = itemView.findViewById(R.id.isSeenTv);
-            //messageLayout = itemView.findViewById(R.id.messageLayout);
         }
     }
 }

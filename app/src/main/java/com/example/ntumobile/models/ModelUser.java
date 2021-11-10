@@ -1,8 +1,6 @@
 package com.example.ntumobile.models;
 
 public class ModelUser {
-
-    //use same name as in firebase database
     public String name, course;
     String email;
     String search;
