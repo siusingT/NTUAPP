@@ -5,8 +5,8 @@ public class Friends {
     String email, name, course, userID, image,onlineStatus,typingTo, search;
 
     public Friends(){
-
     }
+
     public Friends(String email, String name, String course, String image, String userID, String onlineStatus, String typingTo, String search){
         this.name = name;
         this.course = course;

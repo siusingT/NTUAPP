@@ -18,7 +18,6 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -29,7 +28,6 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -90,7 +88,6 @@ public class GroupEditActivity extends AppCompatActivity {
         storagePermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
         firebaseAuth = FirebaseAuth.getInstance();
-        /*checkUser();*/
         loadGroupInfo();
 
         //pick image
@@ -213,7 +210,7 @@ public class GroupEditActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds: dataSnapshot.getChildren()){
-                    //get group info
+
                     String groupId = ""+ds.child("groupId").getValue();
                     String groupTitle = ""+ds.child("groupTitle").getValue();
                     String groupDescription = ""+ds.child("groupDescription").getValue();
@@ -224,7 +221,6 @@ public class GroupEditActivity extends AppCompatActivity {
                     Calendar cal = Calendar.getInstance(Locale.ENGLISH);
                     cal.setTimeInMillis(Long.parseLong(timestamp));
                     String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
-
 
                     //set group info
                     groupTitleEt.setText(groupTitle);
@@ -381,5 +377,6 @@ public class GroupEditActivity extends AppCompatActivity {
 
         }
         super.onActivityResult(requestCode, resultCode, data);
+
     }
 }

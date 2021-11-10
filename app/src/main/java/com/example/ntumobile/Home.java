@@ -2,10 +2,6 @@ package com.example.ntumobile;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
@@ -68,16 +64,6 @@ public class Home extends AppCompatActivity {
             }
         });
 
-        /*ImageButton buttonChat = (ImageButton) findViewById(R.id.chat_button);
-        buttonChat.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view.getId()==R.id.chat_button){
-                    getSupportFragmentManager().beginTransaction().replace(R.id.chat_button, new ChatFragment()).commit();
-                    overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
-                }
-            }
-        });*/
         ImageButton buttonChat = (ImageButton) findViewById(R.id.chat_button);
         buttonChat.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -77,7 +77,6 @@ public class ChatActivity extends AppCompatActivity {
 
     String hisUid, currentUserID, hisImage;
 
-
     //permissions constants
     private static final int CAMERA_REQUEST_CODE = 100;
     private static final int STORAGE_REQUEST_CODE = 200;
@@ -114,11 +113,6 @@ public class ChatActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(linearLayoutManager);
 
-        /*Intent intent = getIntent();
-        //hisUid = intent.getStringExtra("userKey");
-        hisUid = getIntent().getStringExtra("userKey");*/
-
-        //firebase auth instance
         firebaseAuth = FirebaseAuth.getInstance();
         currentUserID = firebaseAuth.getCurrentUser().getUid();
 
@@ -152,14 +146,7 @@ public class ChatActivity extends AppCompatActivity {
                         String onlineStatus = "" + ds.child("onlineStatus").getValue();
                         if (onlineStatus.equals("online")) {
                             userStatusTv.setText(onlineStatus);
-                        } /*else {
-                            //convert timestamp to proper time date
-                            //convert time stamp to dd/mm/yyyy hh:mm am/pm
-                            Calendar cal = Calendar.getInstance(Locale.ENGLISH);
-                            cal.setTimeInMillis(Long.parseLong(onlineStatus));
-                            String dateTime = DateFormat.format("dd/MM/yyyy hh:mm aa", cal).toString();
-                            userStatusTv.setText("Last seen at: " + dateTime);
-                        }*/
+                        }
                     }
 
                     nameTv.setText(name);
@@ -232,7 +219,6 @@ public class ChatActivity extends AppCompatActivity {
 
             }
         });
-
         readMessages();
         seenMessage();
 
@@ -340,7 +326,6 @@ public class ChatActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }
@@ -354,13 +339,11 @@ public class ChatActivity extends AppCompatActivity {
                 chatList.clear();
                 for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     ModelChat chat = ds.getValue(ModelChat.class);
-
                     chatList.add(chat);
                 }
                 //adapter
                 adapterChat = new AdapterChat(ChatActivity.this, chatList, hisImage);
                 adapterChat.notifyDataSetChanged();
-                //set adapter to recyclerview
                 recyclerView.setAdapter(adapterChat);
             }
             @Override
@@ -385,7 +368,6 @@ public class ChatActivity extends AppCompatActivity {
         hashMap.put("type", "text");
         databaseReference.child("Chats").child(currentUserID).child(hisUid).push().setValue(hashMap);
         databaseReference.child("Chats").child(hisUid).child(currentUserID).push().setValue(hashMap);
-
 
         final DatabaseReference database = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Users").child(currentUserID);
 
@@ -727,10 +709,9 @@ public class ChatActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-
                 Toast.makeText(ChatActivity.this, ""+error.getMessage().toString(), Toast.LENGTH_SHORT).show();
-
             }
+
         });
     }
 }

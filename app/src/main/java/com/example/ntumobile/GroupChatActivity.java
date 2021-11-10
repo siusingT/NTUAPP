@@ -34,7 +34,6 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -330,7 +329,6 @@ public class GroupChatActivity extends AppCompatActivity {
 
     private void sendMessage(String message) {
 
-        //timestamp
         String timestamp = "" + System.currentTimeMillis();
 
         //setup message data
@@ -340,7 +338,6 @@ public class GroupChatActivity extends AppCompatActivity {
         hashMap.put("timestamp", "" + timestamp);
         hashMap.put("type", "" + "text"); //text/image/file
 
-        //add in db
         DatabaseReference ref = FirebaseDatabase.getInstance("https://ntu-mobile-9eb73-default-rtdb.asia-southeast1.firebasedatabase.app/").getReference("Groups");
         ref.child(groupId).child("Messages").child(timestamp)
                 .setValue(hashMap)
@@ -370,6 +367,7 @@ public class GroupChatActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         for (DataSnapshot ds : dataSnapshot.getChildren()) {
+
                             String groupTitle = "" + ds.child("groupTitle").getValue();
                             String groupDescription = "" + ds.child("groupDescription").getValue();
                             String groupIcon = "" + ds.child("groupIcon").getValue();

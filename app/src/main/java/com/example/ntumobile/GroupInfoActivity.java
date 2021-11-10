@@ -29,7 +29,6 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 import java.util.Locale;
 
 public class GroupInfoActivity extends AppCompatActivity {
@@ -41,7 +40,6 @@ public class GroupInfoActivity extends AppCompatActivity {
 
     private ActionBar actionBar;
 
-    //ui views
     private ImageView groupIconIv;
     private TextView groupTitleTv, descriptionTv, createdByTv, editGroupTv, addParticipantTv, leaveGroupTv, participantsTv;
     private RecyclerView participantsRv;
@@ -202,8 +200,6 @@ public class GroupInfoActivity extends AppCompatActivity {
 
                     loadCreatorInfo(dateTime, createdBy);
 
-                    //set group info
-                    //actionBar.setTitle(groupTitle);
                     groupTitleTv.setText(groupTitle);
                     descriptionTv.setText(groupDescription);
 
@@ -296,7 +292,6 @@ public class GroupInfoActivity extends AppCompatActivity {
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             for (DataSnapshot ds: dataSnapshot.getChildren()){
                                 ModelUser modelUser = ds.getValue(ModelUser.class);
-
                                 userList.add(modelUser);
                             }
                             //adapter
@@ -308,7 +303,6 @@ public class GroupInfoActivity extends AppCompatActivity {
 
                         @Override
                         public void onCancelled(@NonNull DatabaseError databaseError) {
-
                         }
                     });
                 }
@@ -316,7 +310,6 @@ public class GroupInfoActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
             }
         });
     }

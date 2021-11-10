@@ -27,9 +27,7 @@ import androidx.core.content.ContextCompat;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -39,7 +37,6 @@ import com.google.firebase.storage.UploadTask;
 import java.util.HashMap;
 
 public class GroupCreateActivity extends AppCompatActivity {
-
 
     //permission constants
     private static final int CAMERA_REQUEST_CODE = 100;
@@ -276,6 +273,7 @@ public class GroupCreateActivity extends AppCompatActivity {
     private boolean checkCameraPermissions(){
         boolean result = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.CAMERA) == (PackageManager.PERMISSION_GRANTED);
+
         boolean result1 = ContextCompat.checkSelfPermission(this,
                 Manifest.permission.WRITE_EXTERNAL_STORAGE) == (PackageManager.PERMISSION_GRANTED);
 
